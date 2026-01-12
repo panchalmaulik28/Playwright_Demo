@@ -1,0 +1,5 @@
+/target
+/test-output
+/target/classes/META-INF
+target/classes/META-INF/maven/Playwright_demo/Playwright_demo/pom.properties
+target/classes/META-INF/maven/Playwright_demo/Playwright_demo/pom.xml
