@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import com.base.Base;
 import com.pages.BasePage;
 import com.pages.elements.CheckBoxPage;
+import com.pages.elements.RadioButtonPage;
 import com.pages.elements.TextBoxPage;
 
 public class ElementsTest extends Base {
@@ -39,5 +40,20 @@ public class ElementsTest extends Base {
 		basePage.modulesClick("Elements");
 		basePage.subMenuClick("Check Box");
 		checkBoxPage.verifyCheckBoxIsChecked(value);
+	}
+
+	@Test(priority = 2)
+	public void verifyRadioButton() {
+		String radioButtonNameYes = "Yes";
+		String radioButtonNameNo = "No";
+		String radioButtonNameImpressive = "Impressive";
+
+		basePage = new BasePage(page);
+		RadioButtonPage radioButtonPage = new RadioButtonPage(page);
+
+		basePage.modulesClick("Elements");
+		basePage.subMenuClick("Radio Button");
+		radioButtonPage.selectRadio(radioButtonNameImpressive);
+		softAssert.assertEquals(radioButtonPage.getRadioButtonName(), radioButtonNameImpressive);
 	}
 }

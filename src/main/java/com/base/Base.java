@@ -51,12 +51,12 @@ public class Base {
 
 	@BeforeMethod
 	public Page browserInvoke() {
+		String url = prop.getProperty("url");
+		
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 		int height = (int) dimension.getHeight() - 140;
 		int width = (int) dimension.getWidth() - 60;
 
-		String url = prop.getProperty("url"); 
-		
 		bc = browser.newContext(new Browser.NewContextOptions().setViewportSize(width, height));
 		page = bc.newPage();
 		page.navigate(url);
