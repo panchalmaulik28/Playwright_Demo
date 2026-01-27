@@ -3,7 +3,9 @@ package testcases;
 import org.testng.annotations.Test;
 
 import com.base.Base;
+import com.constants.AppConstant;
 import com.pages.BasePage;
+import com.pages.elements.ButtonsPage;
 import com.pages.elements.CheckBoxPage;
 import com.pages.elements.RadioButtonPage;
 import com.pages.elements.TextBoxPage;
@@ -106,13 +108,31 @@ public class ElementsTest extends Base {
 		webTablesPage.fillDepartment(department);
 		webTablesPage.clickOnSubmitBtn();
 	}
-	
+
 	@Test(priority = 5)
 	public void verifyDeleteUser() {
 		verifyEditUser();
-		
+
 		String email = "maulikupdate@yopmail.com";
-	
+
 		webTablesPage.deleteUser(email);
+	}
+
+	@Test(priority = 6)
+	public void buttonClick() {
+		basePage = new BasePage(page);
+		ButtonsPage buttonsPage = new ButtonsPage(page);
+		
+		basePage.modulesClick("Elements");
+		basePage.subMenuClick("Buttons");
+		
+		buttonsPage.doubleClickOnButton();
+		softAssert.assertEquals(buttonsPage.getDoubleClickMessage(), AppConstant.DOUBLE_CLICK_MESSAGE);
+
+		buttonsPage.rightClickOnButton();
+		softAssert.assertEquals(buttonsPage.getRightClickOnMessage(), AppConstant.RIGHT_CLICK_MESSAGE);
+
+		buttonsPage.clickMeOnButton();
+		softAssert.assertEquals(buttonsPage.getclickMeMessage(), AppConstant.CLICK_ME_MESSAGE);
 	}
 }
