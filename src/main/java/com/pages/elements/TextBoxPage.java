@@ -74,7 +74,6 @@ public class TextBoxPage {
 		default:
 			break;
 		}
-		System.out.println(value);
 		return value;
 	}
 }
